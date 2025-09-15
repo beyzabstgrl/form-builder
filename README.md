@@ -94,16 +94,4 @@ Güncelle → mevcut formu günceller.
 
 Önizle → form doldurulabilir şekilde açılır.
 
-📸 Ekran Görüntüleri
-🔹 Form oluşturma ekranı:
-(örnek ekran görüntüsü buraya eklenebilir)
-
-🔮 Yol Haritası
- Form doldurma sonuçlarının kaydedilmesi
-
- CSV / PDF export özelliği
-
- Kullanıcı bazlı form paylaşımı
-
- Daha gelişmiş tema desteği
 
