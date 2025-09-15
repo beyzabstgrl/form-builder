@@ -45,28 +45,24 @@ API endpointleri:
 ## 📦 Kurulum
 
 ### 1. Projeyi klonla
-```bash
 git clone https://github.com/kullanici/form-builder.git
 cd form-builder
 2. Backend kurulumu
-bash
-Kodu kopyala
-cd backend
-npm install
-npm start
-Varsayılan port: http://localhost:8080
+- cd server
+   - npm install
+--npm run dev
+-Varsayılan port: http://localhost:3000
 
 3. Frontend kurulumu
-bash
-Kodu kopyala
-cd frontend
-npm install
-npm start
-Varsayılan port: http://localhost:3000
+
+cd client
+-npm install
+  - npm run dev
+--Varsayılan port: http://localhost:5173
 
 📂 Proje Yapısı
-csharp
-Kodu kopyala
+
+
 form-builder/
  ├── backend/
  │   ├── routes/
