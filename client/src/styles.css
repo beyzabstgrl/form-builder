@@ -1,0 +1,452 @@
+/* =========================================
+   client/src/styles.css  (Bootstrap yüklü)
+   Import sırası:
+   1) bootstrap.min.css
+   2) react-form-builder2/dist/app.css
+   3) styles.css  (bu dosya)
+   ========================================= */
+
+/* ========== Temel tema ========== */
+:root{
+  --bg-1:#080c1a;
+  --bg-2:#0b1228;
+  --glass:rgba(255,255,255,.06);
+  --glass-b:rgba(255,255,255,.10);
+  --muted:#97a2b7;
+  --text:#e8eefc;
+  --ring:#66d9ff;
+  --r:18px;
+  --shadow:0 20px 80px rgba(0,0,0,.45);
+}
+
+*{ box-sizing:border-box; }
+html,body,#root{ height:100%; }
+body{
+  margin:0;
+  font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--text);
+  overflow-x: hidden;
+  background:
+    radial-gradient(1100px 700px at 20% 10%, rgba(97,96,255,.18) 0, transparent 60%),
+    radial-gradient(900px 600px at 80% 20%, rgba(0,255,235,.10) 0, transparent 60%),
+    linear-gradient(180deg,var(--bg-1),var(--bg-2));
+}
+
+/* ========= Toasts ========= */
+.toast-root{ position:fixed; right:24px; bottom:24px; z-index:9999; display:flex; flex-direction:column; gap:10px; }
+.toast{ min-width:260px; max-width:360px; padding:12px 14px; border-radius:12px; border:1px solid var(--glass-b); box-shadow:var(--shadow); color:#eaf3ff; background:rgba(10,18,36,.92); display:flex; gap:10px; align-items:flex-start; }
+.toast--success{ border-color:rgba(56,183,129,.45); background:linear-gradient(180deg, rgba(18,34,40,.95), rgba(10,18,36,.92)); }
+.toast--error{ border-color:rgba(255,95,109,.45); background:linear-gradient(180deg, rgba(40,18,28,.95), rgba(10,18,36,.92)); }
+.toast-title{ font-weight:700; }
+.toast-msg{ opacity:.95; }
+.toast-close{ margin-left:auto; background:transparent; border:0; color:#cfe0ff; cursor:pointer; }
+
+/* ========== Genel layout yardımcıları ========== */
+.container{ max-width:1440px; margin:0 auto; padding:56px 20px 80px; }
+.nav{ display:flex; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+/* Başlık tipografisi */
+h2{ font-size:28px; font-weight:800; letter-spacing:.2px; margin:0 0 12px 0; }
+
+.card{
+  background:var(--glass);
+  border:1px solid var(--glass-b);
+  border-radius:var(--r);
+  backdrop-filter: blur(8px);
+  box-shadow:var(--shadow);
+  padding:30px;
+}
+
+/* Builder için tek kart yüzeyi - toolbox ve dropzone aynı kart içinde görünür */
+.builder-surface{
+  background:var(--glass);
+  border:1px solid var(--glass-b);
+  border-radius:16px;
+  padding:16px;
+}
+ 
+.muted{ color:var(--muted); }
+
+/* Linkler */
+a{ color:#a2f2ff; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+.btn-group {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  justify-content: flex-end;
+  margin-bottom: 16px; /* yukarı çeker */
+}
+
+/* ========== Buton ve input (Bootstrap’i koyu temaya uydur) ========== */
+.btn{
+  border-radius:12px !important;
+  border:1px solid var(--glass-b) !important;
+  background:#1f2c3f !important;
+  color:var(--text) !important;
+  font-weight:600 !important;
+  padding:.55rem .9rem !important;
+  transition:.15s transform,.15s background,.15s border-color !important;
+}
+.btn:hover{ transform:translateY(-1px); background:#23324a !important; border-color:#2a3b55 !important; }
+.btn:disabled{ opacity:.6 !important; cursor:not-allowed !important; transform:none !important; }
+
+/* Metin kutuları */
+.input, .form-control{
+  height:44px;
+  padding:0 12px;
+  border-radius:12px !important;
+  border:1px solid var(--glass-b) !important;
+  background:#0b142a !important;
+  color:var(--text) !important;
+  outline:none;
+  box-shadow:none !important;
+}
+.input:focus, .form-control:focus{
+  border-color:var(--ring) !important;
+  box-shadow:0 0 0 4px rgba(102,217,255,.12) !important;
+}
+
+/* Liste */
+.list{ list-style:none; padding:0; margin:0; }
+.list li{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+/* =========================================================
+   React Form Builder — Bootstrap 3 grid emülasyonu (kesin çözüm)
+   ========================================================= */
+
+.react-form-builder{ text-align:left !important; }
+
+/* Satır boşlukları ve clearfix */
+.react-form-builder .row{ display:block !important; margin-left:-15px !important; margin-right:-15px !important; }
+.react-form-builder .row:before, .react-form-builder .row:after{ content:""; display:table; }
+.react-form-builder .row:after{ clear:both; }
+
+/* 3-9 düzeni */
+.react-form-builder .col-md-3{ position:relative; min-height:1px; padding:0 15px; float:left !important; width:25% !important; max-width:25% !important; }
+.react-form-builder .col-md-9{ position:relative; min-height:1px; padding:0 15px; float:left !important; width:75% !important; max-width:75% !important; }
+
+/* 4-8 olasılığı için */
+.react-form-builder .col-md-4{ position:relative; min-height:1px; padding:0 15px; float:left !important; width:33.3333% !important; max-width:33.3333% !important; }
+.react-form-builder .col-md-8{ position:relative; min-height:1px; padding:0 15px; float:left !important; width:66.6667% !important; max-width:66.6667% !important; }
+
+/* Küçük ekranlarda alt alta */
+@media (max-width:991px){
+  .react-form-builder .col-md-3,
+  .react-form-builder .col-md-4,
+  .react-form-builder .col-md-8,
+  .react-form-builder .col-md-9{ float:none !important; width:100% !important; max-width:100% !important; }
+}
+
+/* Üst hiza */
+.react-form-builder .col-md-9,
+.react-form-builder .col-md-8,
+.react-form-builder .col-md-3,
+.react-form-builder .col-md-4{ display:flex !important; align-items:stretch !important; }
+.react-form-builder .react-form-builder-preview,
+.react-form-builder .react-form-builder-toolbar{ margin-top:0 !important; }
+
+/* Builder başlık ve aksiyonlar hizası */
+.builder-grid + p.muted{ margin-top:12px; }
+
+/* Büyük ekranlarda yan yana */
+@media (min-width:992px){
+  .builder-grid .react-form-builder > .row{ gap:24px !important; }
+}
+
+/* Küçük ekranlarda alt alta */
+@media (max-width:991px){
+  .builder-grid .react-form-builder > .row{ grid-template-columns:1fr !important; }
+  .builder-grid .react-form-builder .col-md-3,
+  .builder-grid .react-form-builder .col-md-4{ margin-bottom:16px; width:100% !important; max-width:100% !important; }
+}
+
+/* ===== Toolbox ===== */
+.react-form-builder .react-form-builder-toolbar,
+.react-form-builder .react-form-builder-toolbar *{ opacity:1 !important; }
+
+.react-form-builder .react-form-builder-toolbar{
+  position: static !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  max-height: calc(100vh - 160px) !important;
+  overflow: auto !important;
+
+  background: transparent !important;
+  border:0 !important;
+  border-radius:12px !important;
+  box-shadow: none !important;
+  padding-right:6px !important;
+  padding-left:6px !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+}
+
+/* Form oluşturucu içi spacing */
+.react-form-builder .form-group{ margin-bottom:14px !important; }
+.react-form-builder .form-group .form-control{ height:42px !important; }
+.react-form-builder .btn, .react-form-builder .button{ border-radius:12px !important; font-weight:600 !important; }
+
+.react-form-builder .react-form-builder-toolbar .toolbar-header{
+  background: transparent !important;
+  color:#E8EEFC !important;
+  font-weight:800 !important;
+  letter-spacing:.06em !important;
+  text-transform:uppercase !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+  padding:12px 14px !important;
+  text-align:center !important;
+}
+
+/* Toolbox öğeleri */
+.react-form-builder .react-form-builder-toolbar ul{
+  margin:10px 4px 14px 0 !important;
+  padding:0 !important;
+  list-style:none !important;
+}
+
+.react-form-builder .react-form-builder-toolbar li{
+  display:flex !important; align-items:center !important; gap:10px !important;
+  color:#DFE9FF !important;
+  font-weight:600 !important; font-size:14px !important;
+  padding:10px 12px !important; margin:8px 4px !important;
+  background:rgba(255,255,255,.06) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  border-radius:12px !important;
+  cursor:grab !important;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease !important;
+}
+.react-form-builder .react-form-builder-toolbar li:hover{
+  background:rgba(255,255,255,.10) !important;
+  border-color:rgba(102,217,255,.35) !important;
+  transform: translateY(-1px) !important;
+}
+.react-form-builder .react-form-builder-toolbar li i,
+.react-form-builder .react-form-builder-toolbar li .fa{
+  width:18px !important; text-align:center !important; opacity:.9 !important;
+}
+.react-form-builder .react-form-builder-toolbar li .item-label,
+.react-form-builder .react-form-builder-toolbar li span{
+  color:#020409 !important;
+}
+
+/* ===== Canvas / Dropzone alanı ===== */
+.react-form-builder .react-form-builder-preview{
+  background: transparent !important;
+  border:0 !important;
+  border-radius:12px !important;
+  padding:0 !important;
+  min-height:70vh !important;
+  max-height: calc(100vh - 260px) !important;
+  overflow:auto !important;
+}
+
+.react-form-builder .rfb-item, 
+.react-form-builder .SortableItem{ background:rgba(12,18,34,.6) !important; border-radius:12px !important; }
+.react-form-builder .rfb-item .form-control{ background:#0b142a !important; color:#e8eefc !important; }
+.react-form-builder .rfb-item label{ color:#d6e6ff !important; }
+
+/* =========================================================
+   Fill (ReactFormGenerator) koyu tema
+   ========================================================= */
+.react-form-generator,
+.react-form-generator form,
+.react-form-generator .form-elements,
+.react-form-generator .rendered-form{
+  background: transparent !important;
+}
+.react-form-generator,
+.react-form-generator .rendered-form,
+.react-form-generator *{
+  color:#e8eefc !important;
+}
+.react-form-generator .form-group > label,
+.react-form-generator label{ color:#000307 !important; font-weight:600 !important; background:transparent !important; border:0 !important; box-shadow:none !important; padding:0 !important; }
+
+/* Bootstrap/Generator içindeki küçük etiket/rozet sınıfları */
+.react-form-generator .label,
+.react-form-generator .badge,
+.react-form-generator .help-block {
+  background: transparent !important;
+  color: #000000 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.react-form-generator .form-control,
+.react-form-generator input[type="text"],
+.react-form-generator input[type="email"],
+.react-form-generator input[type="tel"],
+.react-form-generator input[type="url"],
+.react-form-generator input[type="password"],
+.react-form-generator input[type="date"],
+.react-form-generator input[type="datetime-local"],
+.react-form-generator input[type="number"],
+.react-form-generator textarea,
+.react-form-generator select{
+  background:#0b142a !important;
+  color:#e8eefc !important;
+  border:1px solid rgba(160,186,220,.35) !important;
+  border-radius:12px !important;
+  box-shadow:none !important;
+}
+.react-form-generator .form-control:focus,
+.react-form-generator input:focus,
+.react-form-generator textarea:focus,
+.react-form-generator select:focus{ border-color: var(--ring) !important; box-shadow:0 0 0 4px rgba(102,217,255,.12) !important; outline:none !important; }
+.react-form-generator .control-label{ color:#000000 !important; font-weight:700 !important; }
+.react-form-generator .control-label .required{ color:#ff8fa3 !important; }
+.react-form-generator select option{ background:#0b142a !important; color:#e8eefc !important; }
+.react-form-generator .rendered-form .form-group{ margin-bottom:16px !important; }
+
+/* WebKit autofill */
+.react-form-generator input:-webkit-autofill,
+.react-form-generator textarea:-webkit-autofill,
+.react-form-generator select:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0px 1000px #0b142a inset !important;
+  -webkit-text-fill-color: #e8eefc !important;
+  caret-color:#e8eefc !important;
+}
+
+/* Disabled alanlar */
+.react-form-generator .form-control[disabled],
+.react-form-generator .form-control:disabled,
+.react-form-generator input:disabled,
+.react-form-generator select:disabled,
+.react-form-generator textarea:disabled{
+  background:#0f1630 !important; color:#a8b9d6 !important; opacity:1 !important;
+}
+.react-form-generator ::placeholder{ color:#9bb1d3 !important; opacity:0.8 !important; }
+.react-form-generator .btn,
+.react-form-generator button{
+  background:#1f2c3f !important;
+  border:1px solid var(--glass-b) !important;
+  color:var(--text) !important;
+  border-radius:12px !important;
+}
+.react-form-generator .btn:hover,
+.react-form-generator button:hover{
+  background:#23324a !important; border-color:#2a3b55 !important;
+}
+
+/* ===== RFB edit paneli kapalı ===== */
+/* Edit panel defaultta gizli olsun, sadece aktifken görünsün */
+/* Edit panel her zaman sağda ama boşken gizli gibi */
+/* Edit form panelini sağ kenara sabitle */
+.react-form-builder .edit-form {
+  display: none;
+  position: fixed !important;   /* parent'tan bağımsız */
+  top: 0;
+  left: auto !important;
+  right: 0 !important;
+  width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #0b142a;
+  border-left: 1px solid rgba(255,255,255,.1);
+  box-shadow: -4px 0 16px rgba(0,0,0,.6);
+  color: #e8eefc;
+  transition: width 0.3s ease, padding 0.3s ease;
+  padding: 0;
+  z-index: 9999; /* en üste getir */
+}
+
+/* İçerik varsa aç */
+.react-form-builder .edit-form:not(:empty) {
+  display: block;
+  width: 420px;
+  padding: 20px;
+}
+
+
+
+
+
+/* Dropzone placeholder */
+.react-form-builder .react-form-builder-preview .SortableItem.rfb-item-placeholder{
+  border:2px dashed rgba(255,255,255,.5) !important;
+}
+
+/* Builder içi form elemanları */
+.react-form-builder .form-group > label {
+  color: #000000 !important;
+  font-weight: 600 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.react-form-builder .form-control{
+  background:#0b142a !important; color:var(--text) !important;
+  border:1px solid var(--glass-b) !important; border-radius:12px !important;
+}
+.react-form-builder .btn,
+.react-form-builder .button{
+  background:#1f2c3f !important; border:1px solid var(--glass-b) !important; color:var(--text) !important;
+}
+.react-form-builder .btn:hover,
+.react-form-builder .button:hover{
+  background:#23324a !important; border-color:#2a3b55 !important;
+}
+
+/* ===== Scrollbar ===== */
+.react-form-builder .react-form-builder-toolbar{ scrollbar-width:thin; scrollbar-color: rgba(180,196,230,.3) rgba(0,0,0,.2); scrollbar-gutter: none; }
+.react-form-builder .react-form-builder-toolbar::-webkit-scrollbar{ width:8px; }
+.react-form-builder .react-form-builder-toolbar::-webkit-scrollbar-track{ background:rgba(0,0,0,.2); }
+.react-form-builder .react-form-builder-toolbar::-webkit-scrollbar-thumb{ background:rgba(180,196,230,.28); border-radius:8px; border:2px solid rgba(0,0,0,.2); background-clip:padding-box; }
+
+/* === Label arka planını TAMAMEN kaldır === */
+.rendered-form .form-group > label,
+.react-form-generator .form-group > label,
+.react-form-generator label,
+.react-form-builder .form-group > label,
+.react-form-builder .rfb-item label,
+.control-label,
+.component-label,
+label {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  display: inline-block !important;
+  color: #d6e6ff !important;
+}
+.rendered-form .form-group > label::before,
+.rendered-form .form-group > label::after,
+.react-form-generator label::before,
+.react-form-generator label::after,
+.react-form-builder .form-group > label::before,
+.react-form-builder .form-group > label::after {
+  content: none !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+.label,
+.label-default,
+.badge,
+.help-block {
+  background: transparent !important;
+  color: #cfe0ff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+fieldset,
+legend {
+  background: transparent !important;
+  border: 0 !important;
+}
+.rendered-form *:not(input):not(textarea):not(select):not(button):not(.form-control) {
+  background-color: transparent !important;
+}
+.react-form-builder-form .rfb-item label span {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #d6e6ff !important; /* yazı rengi */
+  padding: 0 10px !important; /* padding’i korumak istiyorsan */
+}
