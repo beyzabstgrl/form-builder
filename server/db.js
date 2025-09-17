@@ -16,6 +16,13 @@ CREATE TABLE IF NOT EXISTS submissions (
   created_at TEXT DEFAULT (datetime('now')),
   FOREIGN KEY(form_id) REFERENCES forms(id)
 );
+CREATE TABLE IF NOT EXISTS select_options (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  dataset TEXT NOT NULL,
+  value TEXT NOT NULL,
+  label TEXT NOT NULL
+);
+
 `);
 
 module.exports = db;
